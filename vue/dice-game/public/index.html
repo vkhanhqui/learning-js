@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+  <title>
+    Dice Game
+  </title>
+</head>
+
+<!-- 
+isPlaying: true
+score -> Có 2 điểm chính thức hành cho 2 người chơi
+currentStore
+dice1 - dice2
+Làm sao để nhận diện được ai là người đang chơi?? -> Chỉ có 2 người
+    -> Tạo biến để lưu
+    activePlayer: 1 -> Người thứ nhất đang chơi
+    activePlayer: 2 -> Người thứ hai đang chơi
+
+NewGame
+    1. Show Popup
+    2. Reset Data
+    3. Xay dựng Popup
+
+Roll Dice
+    1. Random dư liệu 2 con xúc xắc
+    2. Kiểm tra xem người dùng có xuay đúng con số 1 không?
+        2.1. Nếu xoay trúng số 1 -> Đổi lượt chơi -> Reset điểm tạm thời
+        2.2. Nếu xoay ok -> Cộng dồn vào điểm tạm thời cho người chơi đó.
+
+Hold -> Lấy điểm
+    1. So sánh xem điểm cuối cùng lớn hơn FinalScore???
+    2. Chưa đủ điểm -> Cộng dồn 'ĐIỂM CHÍNH THỨC' => Đổi lượt chơi
+
+ -->
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
