@@ -14,6 +14,14 @@ class StudentController {
         })
     }
 
+    showByName(req, res, next) {
+        Student.find({ name: req.params.name })
+            .then(students => {
+                res.status(200).json({ students })
+            })
+            .catch(next)
+    }
+
 }
 
 module.exports = new StudentController
