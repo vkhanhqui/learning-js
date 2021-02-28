@@ -10,6 +10,9 @@ const port = 8080
 const { Octokit } = require("@octokit/rest");
 const octokit = new Octokit();
 
+//DTO
+const RepoDTO = require('./dtos/RepoDTO')
+
 //connect to database
 db.connect()
 
@@ -25,12 +28,11 @@ app.set('views', path.join(__dirname, 'resources', 'views'))
 
 route(app);
 
-app.get('/users/:username', function (req, res) {
-    var username = req.params.username
+app.get('/repos', function (req, res) {
     var page = req.query.page
     octokit.repos
-        .listForUser({
-            username: username,
+        .listForOrg({
+            org: "OngDev",
             type: "all",
             per_page: "10",
             page: page,
@@ -38,7 +40,8 @@ app.get('/users/:username', function (req, res) {
         })
         .then(({ data }) => {
             // handle data
-            res.status(200).json(data)
+            const reposDTO = RepoDTO.toRepoDtoList(data);
+            res.status(200).json(reposDTO)
         })
 })
 
